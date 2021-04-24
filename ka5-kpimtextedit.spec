@@ -1,15 +1,15 @@
-%define		kdeappsver	20.12.3
+%define		kdeappsver	21.04.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		kpimtextedit
 Summary:	kpimtextedit
 Name:		ka5-%{kaname}
-Version:	20.12.3
+Version:	21.04.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	fb018dcfd35b1ec4cfca0c40d7af2fb2
+# Source0-md5:	aa4908b3f87def3039c4a277d8e6e756
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Designer-devel
@@ -85,8 +85,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) %ghost %{_libdir}/libKF5PimTextEdit.so.5
-%attr(755,root,root) %{_libdir}/libKF5PimTextEdit.so.5.*.*
+%ghost %{_libdir}/libKF5PimTextEdit.so.5
+%attr(755,root,root) %{_libdir}/libKF5PimTextEdit.so.*.*.*
 %attr(755,root,root) %{_libdir}/qt5/plugins/designer/kpimtexteditwidgets.so
 %{_datadir}/qlogging-categories5/kpimtextedit.categories
 
@@ -95,5 +95,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/KF5/KPIMTextEdit
 %{_includedir}/KF5/kpimtextedit_version.h
 %{_libdir}/cmake/KF5PimTextEdit
-%attr(755,root,root) %{_libdir}/libKF5PimTextEdit.so
+%{_libdir}/libKF5PimTextEdit.so
 %{_libdir}/qt5/mkspecs/modules/qt_KPIMTextEdit.pri
