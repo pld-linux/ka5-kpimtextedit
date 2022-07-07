@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.04.2
-%define		kframever	5.56.0
-%define		qtver		5.9.0
+%define		kdeappsver	22.04.3
+%define		kframever	5.94.0
+%define		qtver		5.15.2
 %define		kaname		kpimtextedit
 Summary:	kpimtextedit
 Name:		ka5-%{kaname}
-Version:	22.04.2
+Version:	22.04.3
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	0665be78d1b281183d973f3d4156c3c9
+# Source0-md5:	cd18eeff46651b8afa8f901734885326
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Designer-devel
