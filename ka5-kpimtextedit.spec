@@ -1,46 +1,45 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	23.08.4
+%define		kdeappsver	24.01.95
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		kpimtextedit
 Summary:	kpimtextedit
 Name:		ka5-%{kaname}
-Version:	23.08.4
-Release:	1
+Version:	24.01.95
+Release:	0.1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	919a2cbe838c22e461faaa519f393fcc
+Source0:	https://download.kde.org/unstable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	1584d6c400ce8156b1f1a7537f17fb5c
 URL:		http://www.kde.org/
-BuildRequires:	Qt5Core-devel >= %{qtver}
-BuildRequires:	Qt5Designer-devel
-BuildRequires:	Qt5Gui-devel
-BuildRequires:	Qt5Speech-devel >= %{qtver}
-BuildRequires:	Qt5Test-devel
-BuildRequires:	Qt5UiTools-devel >= 5.11.1
-BuildRequires:	Qt5Widgets-devel
+BuildRequires:	Qt6Core-devel >= %{qtver}
+BuildRequires:	Qt6Designer-devel
+BuildRequires:	Qt6Gui-devel
+BuildRequires:	Qt6Test-devel
+BuildRequires:	Qt6TextToSpeech-devel >= %{qtver}
+BuildRequires:	Qt6UiTools-devel >= 5.11.1
+BuildRequires:	Qt6Widgets-devel
 BuildRequires:	cmake >= 3.20
 BuildRequires:	gettext-devel
 BuildRequires:	grantlee-qt5-devel >= 5.1
-BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
-BuildRequires:	kf5-kcodecs-devel >= %{kframever}
-BuildRequires:	kf5-kconfig-devel >= %{kframever}
-BuildRequires:	kf5-kconfigwidgets-devel >= %{kframever}
-BuildRequires:	kf5-kcoreaddons-devel >= %{kframever}
-BuildRequires:	kf5-kdesignerplugin-devel >= %{kframever}
-BuildRequires:	kf5-kemoticons-devel >= %{kframever}
-BuildRequires:	kf5-ki18n-devel >= %{kframever}
-BuildRequires:	kf5-kiconthemes-devel >= %{kframever}
-BuildRequires:	kf5-kio-devel >= %{kframever}
-BuildRequires:	kf5-ktextwidgets-devel >= %{kframever}
-BuildRequires:	kf5-kwidgetsaddons-devel >= %{kframever}
-BuildRequires:	kf5-kxmlgui-devel >= %{kframever}
-BuildRequires:	kf5-sonnet-devel >= %{kframever}
-BuildRequires:	kf5-syntax-highlighting-devel >= %{kframever}
+BuildRequires:	kf6-extra-cmake-modules >= %{kframever}
+BuildRequires:	kf6-kcodecs-devel >= %{kframever}
+BuildRequires:	kf6-kconfig-devel >= %{kframever}
+BuildRequires:	kf6-kconfigwidgets-devel >= %{kframever}
+BuildRequires:	kf6-kcoreaddons-devel >= %{kframever}
+BuildRequires:	kf6-ki18n-devel >= %{kframever}
+BuildRequires:	kf6-kiconthemes-devel >= %{kframever}
+BuildRequires:	kf6-kio-devel >= %{kframever}
+BuildRequires:	kf6-ktextwidgets-devel >= %{kframever}
+BuildRequires:	kf6-kwidgetsaddons-devel >= %{kframever}
+BuildRequires:	kf6-kxmlgui-devel >= %{kframever}
+BuildRequires:	kf6-sonnet-devel >= %{kframever}
+BuildRequires:	kf6-syntax-highlighting-devel >= %{kframever}
+BuildRequires:	ktextaddons-devel >= 1.5.3
 BuildRequires:	ninja
-BuildRequires:	qt5-build >= %{qtver}
+BuildRequires:	qt6-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
@@ -92,15 +91,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
-%{_datadir}/qlogging-categories5/kpimtextedit.categories
-%ghost %{_libdir}/libKPim5TextEdit.so.5
-%attr(755,root,root) %{_libdir}/libKPim5TextEdit.so.*.*.*
-%{_libdir}/qt5/plugins/designer/kpimtextedit5widgets.so
+%attr(755,root,root) %{_libdir}/libKPim6TextEdit.so.*.*
+%ghost %{_libdir}/libKPim6TextEdit.so.6
+%{_datadir}/qlogging-categories6/kpimtextedit.categories
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/cmake/KF5PimTextEdit
-%{_libdir}/qt5/mkspecs/modules/qt_KPIMTextEdit.pri
-%{_includedir}/KPim5/KPIMTextEdit
-%{_libdir}/cmake/KPim5TextEdit
-%{_libdir}/libKPim5TextEdit.so
+%{_includedir}/KPim6/KPIMTextEdit
+%{_libdir}/cmake/KPim6TextEdit
+%{_libdir}/libKPim6TextEdit.so
