@@ -1,6 +1,7 @@
 #
 # Conditional build:
-%bcond_with	tests		# build with tests
+%bcond_with	tests		# test suite
+
 %define		kdeappsver	23.08.5
 %define		kframever	5.94.0
 %define		qtver		5.15.2
@@ -55,6 +56,7 @@ Summary:	Header files for %{kaname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kaname}
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	kf5-ktextwidgets-devel >= 5.105.0
 
 %description devel
 Header files for %{kaname} development.
