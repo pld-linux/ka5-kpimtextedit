@@ -6,7 +6,8 @@
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		kpimtextedit
-Summary:	kpimtextedit
+Summary:	KPIMTextedit - a textedit with PIM-specific features
+Summary(pl.UTF-8):	KPIMTextedit - pole edycji tekstu z funkcjami specyficznymi dla PIM
 Name:		ka5-%{kaname}
 Version:	23.08.5
 Release:	1
@@ -14,7 +15,7 @@ License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
 # Source0-md5:	34eec446fdb47a50a6d0e3e1d3cc5668
-URL:		http://www.kde.org/
+URL:		https://kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Designer-devel
 BuildRequires:	Qt5Gui-devel
@@ -49,7 +50,11 @@ BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Kpimtextedit.
+KPIMTextedit provides a textedit with PIM-specific features.
+
+%description -l pl.UTF-8
+KPIMTextedit dostarcza pole edycji tekstu z funkcjami specyficznymi
+dla PIM.
 
 %package devel
 Summary:	Header files for %{kaname} development
@@ -73,15 +78,16 @@ Pliki nagłówkowe dla programistów używających %{kaname}.
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DHTML_INSTALL_DIR=%{_kdedocdir} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
+
 %ninja_build -C build
 
 %if %{with tests}
 ctest --test-dir build
 %endif
 
-
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %ninja_install -C build
 
 %find_lang %{kaname} --all-name --with-kde
@@ -94,15 +100,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
-%{_datadir}/qlogging-categories5/kpimtextedit.categories
-%ghost %{_libdir}/libKPim5TextEdit.so.5
 %attr(755,root,root) %{_libdir}/libKPim5TextEdit.so.*.*.*
+%ghost %{_libdir}/libKPim5TextEdit.so.5
+%{_datadir}/qlogging-categories5/kpimtextedit.categories
 %{_libdir}/qt5/plugins/designer/kpimtextedit5widgets.so
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/cmake/KF5PimTextEdit
-%{_libdir}/qt5/mkspecs/modules/qt_KPIMTextEdit.pri
-%{_includedir}/KPim5/KPIMTextEdit
-%{_libdir}/cmake/KPim5TextEdit
 %{_libdir}/libKPim5TextEdit.so
+%{_includedir}/KPim5/KPIMTextEdit
+%{_libdir}/cmake/KF5PimTextEdit
+%{_libdir}/cmake/KPim5TextEdit
+%{_libdir}/qt5/mkspecs/modules/qt_KPIMTextEdit.pri
