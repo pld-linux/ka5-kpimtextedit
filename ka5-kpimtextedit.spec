@@ -36,6 +36,7 @@ BuildRequires:	kf5-kemoticons-devel >= %{kframever}
 BuildRequires:	kf5-ki18n-devel >= %{kframever}
 BuildRequires:	kf5-kiconthemes-devel >= %{kframever}
 BuildRequires:	kf5-kio-devel >= %{kframever}
+BuildRequires:	kf5-ktextaddons-devel >= 1.0.0
 BuildRequires:	kf5-ktextwidgets-devel >= %{kframever}
 BuildRequires:	kf5-kwidgetsaddons-devel >= %{kframever}
 BuildRequires:	kf5-kxmlgui-devel >= %{kframever}
@@ -47,6 +48,7 @@ BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+Requires:	kf5-ktextaddons >= 1.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -62,6 +64,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kaname}
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	kf5-ktextwidgets-devel >= 5.105.0
+Requires:	kf5-ktextaddons-devel >= 1.0.0
 
 %description devel
 Header files for %{kaname} development.
